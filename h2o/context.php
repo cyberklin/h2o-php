@@ -158,7 +158,8 @@ class H2o_Context implements ArrayAccess {
                 if (isset($object->$part))
                     $object = $object->$part;
                 elseif (is_callable(array($object, $part))) {
-                    $methodAllowed = in_array(get_class($object), $this->safeClass) || 
+                    $methodAllowed = (!$this->options['protect_methods']) ||
+						in_array(get_class($object), $this->safeClass) || 
                         (isset($object->h2o_safe) && (
                             $object->h2o_safe === true || in_array($part, $object->h2o_safe)
                         )

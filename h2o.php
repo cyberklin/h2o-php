@@ -35,6 +35,7 @@ class H2o {
             'cache_ttl'         =>      3600,     // file | apc | memcache
             'searchpath'        =>      false,
             'autoescape'        =>      true,
+            'protect_methods'   =>      true,
         
             // Enviroment setting
             'BLOCK_START'       =>      '{%',
